@@ -39,7 +39,7 @@ emulator-5554   device
 
 ```sh
 # Clone adbss repo to your home directory.
-git clone https://github.com/skoric/adbss ~
+git clone https://github.com/skoric/adbss.git ~/adbss
 
 # Create alias in your shell config file ('.bash_profile', '.zshrc', etc.).
 echo "alias adbss=\"sh $HOME/adbss/adbss.sh\"" >> ~/.zshrc
