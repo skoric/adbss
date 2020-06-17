@@ -1,16 +1,18 @@
 #!/bin/bash
 
+VERSION="0.1-beta"
+
 # Color for successful operations.
-C_GREEN="\e[32m"
+C_GREEN=`tput setaf 2`
 
 # Color for hints/warnings.
-C_YELLOW="\e[33m"
+C_YELLOW=`tput setaf 3`
 
 # Color for errors.
-C_RED="\e[31m"
+C_RED=`tput setaf 1`
 
 # Ends text coloring.
-C_END="\e[0m"
+C_END=`tput sgr0`
 
 # Function that reads character from the command line.
 read_char() {
@@ -39,7 +41,8 @@ print_help() {
 }
 
 # Welcome message.
-echo -e "${C_GREEN}Welcome to ADBSS (Android Debug Bridge Recorded)!${C_END}"
+echo -e "${C_GREEN}adbss (Android Debug Bridge ScreenShoter)${C_END}"
+echo -e "Version: ${VERSION}"
 
 # ===== Read output directory. =====
 
