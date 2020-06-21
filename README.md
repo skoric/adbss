@@ -1,9 +1,19 @@
-# adbss (Android Debug Bridge ScreenShoter)
+# adbss 
+# adbss 
+
+**A**ndroid **D**ebug **B**ridge **S**creen**S**hoter
+
 *Small bash script for easy screenshot taking on Android devices/emulators*
 
-`adbss.sh` is small bash script that will allow you to interactively take screenshots on your connected Android device or emulator. You just need to make sure that you have `adb` in your path.
+The `adbss.sh` is a small bash script that will allow you to interactively take screenshots on your connected Android device or emulator. 
 
-Screenshots are first saved to a temporary file on the device, before being transferred. `adbss` cleans those files.
+### Features
+
+- Take a screenshot from connected device/emulator with one key press
+- Specify an output directory for the saved screenshots
+- Automatically clean the temporary screenshot from the device
+
+### Sample
 
 See the sample of screenshot taking process:
 
