@@ -1,5 +1,4 @@
 # adbss 
-# adbss 
 
 **A**ndroid **D**ebug **B**ridge **S**creen**S**hoter
 
