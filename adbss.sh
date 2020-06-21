@@ -2,27 +2,17 @@
 
 VERSION="0.1-beta"
 
-# Color for successful operations.
 C_GREEN=`tput setaf 2`
-
-# Color for hints/warnings.
 C_YELLOW=`tput setaf 3`
-
-# Color for errors.
 C_RED=`tput setaf 1`
-
-# Ends text coloring.
 C_END=`tput sgr0`
 
-# Function that reads character from the command line.
 read_char() {
     stty -icanon -echo
     eval "$1=\$(dd bs=1 count=1 2>/dev/null)"
     stty icanon echo
 }
 
-# Function that takes the screenshot from the device 
-# and saves it to the output directory.
 take_screenshot() {
     FILENAME="abdss_$(date +"%Y_%m_%d_%H_%M_%S").png"
     TEMP_FILE="/sdcard/adbss_temp.png"
@@ -35,22 +25,25 @@ take_screenshot() {
     echo -e "${C_GREEN}\t[DONE]${C_END}"
 }
 
-# Function that prints the 'help page'.
 print_help() {
-    echo "See README.md.."
+    cat << EOF
+Usage: adbss [-o <output_dir>][-h][-v]
+
+-o Output directory for the screenshots
+-h Show help
+-v Show version
+EOF
 }
 
-# Welcome message.
+print_version() {
+    echo $VERSION
+}
+
 echo -e "${C_GREEN}adbss (Android Debug Bridge ScreenShoter)${C_END}"
-echo -e "Version: ${VERSION}"
 
-# ===== Read output directory. =====
-
-# Default output directory.
 OUTPUT_DIR="$HOME/adbss-outputs"
 
-# Read output directory from the -o flag.
-while getopts ":o:h" opt; do
+while getopts ":o:hv" opt; do
     case $opt in
         h)
             print_help
@@ -58,6 +51,10 @@ while getopts ":o:h" opt; do
             ;;
         o)
             OUTPUT_DIR=$OPTARG
+            ;;
+        v)
+            print_version
+            exit 0
             ;;
         \?)
             echo -e "${C_RED}Invalid option, use -h flag to learn about the" \
@@ -72,7 +69,6 @@ while getopts ":o:h" opt; do
     esac
 done
 
-# Try to create an output directory.
 if mkdir -p $OUTPUT_DIR
 then
     OUTPUT_DIR=$(cd ${OUTPUT_DIR} && pwd)
@@ -82,18 +78,14 @@ else
     exit 1
 fi
 
-# ===== Start recording. =====
-
-# Message on how to use ADBSS.
 echo -e "${C_YELLOW}Press any key to take a screenshot, 'q' to quit.${C_END}"
 
-# Listen for character input.
 while true
 do
     read_char INPUT
     if [[ $INPUT == 'q' ]]
     then
-        echo -e "${C_GREEN}Closing ADBSS. Your files are" \
+        echo -e "${C_GREEN}Closing adbss. Your files are" \
                 "saved at: ${OUTPUT_DIR}.${C_END}";
         exit 0
     else
