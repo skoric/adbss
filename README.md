@@ -2,8 +2,6 @@
 
 **A**ndroid **D**ebug **B**ridge **S**creen**S**hoter
 
-*Small bash script for easy screenshot taking on Android devices/emulators*
-
 The `adbss.sh` is a small bash script that will allow you to interactively take screenshots on your connected Android device or emulator. 
 
 ### Features
@@ -18,10 +16,11 @@ See the sample of screenshot taking process:
 
 ![](res/adbss-demo.gif)
 
-### Options
+### Usage
 
 * **-o** Specify output directory for screenshots, e.g. `adbss -o ~/Desktop/test_dir`
-* **-h** Print help.
+* **-h** Print help
+* **-v** Print version
 
 ### Installation (Linux and MacOS)
 
