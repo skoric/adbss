@@ -58,3 +58,5 @@ source ~/.zshrc
 # Start taking screenshots.
 adbss
 ```
+
+If you've used the git repo, you can update by simply calling `git pull` in local repo directory.

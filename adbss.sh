@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.1-beta"
+VERSION="0.1"
 
 C_GREEN=`tput setaf 2`
 C_YELLOW=`tput setaf 3`
